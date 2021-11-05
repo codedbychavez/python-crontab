@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'django_crontab',
     'api'
 ]
 
@@ -70,6 +71,12 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'pycrontab.wsgi.application'
+
+
+CRONJOBS = [
+    ('*/1 * * * *', 'api.cron.my_scheduled_job')
+]
+
 
 
 # Database
