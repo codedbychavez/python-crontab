@@ -1,6 +1,12 @@
-from datetime import datetime
+#!/usr/bin/env bash
 
-def my_scheduled_job():
-    myFile = open('cron_log.txt', 'a') 
-    myFile.write('\nAccessed on ' + str(datetime.now()))
-    print('Hello World')
+from crontab import CronTab
+
+cron = CronTab(user='chavez')
+
+task = cron.new(command='cd /Users/chavez/Desktop/Creative Work/repos/python-crontab/pycrontab/api/ && /Users/chavez/Desktop/Creative Work/repos/python-crontab/venv/bin/python /Users/chavez/Desktop/Creative Work/repos/python-crontab/pycrontab/api/python_script.py') 
+
+task.minute.every(1)
+
+cron.write()
+ 

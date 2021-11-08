@@ -1,0 +1,18 @@
+#--------------------------------------------------
+# example unix/linux crontab file format:
+#--------------------------------------------------
+# min,hour,dayOfMonth,month,dayOfWeek command
+#
+# field          allowed values
+# -----          --------------
+# minute         0-59
+# hour           0-23
+# day of month   1-31
+# month          1-12 (or names, see below)
+# day of week    0-7 (0 or 7 is Sun, or use names)
+#
+#--------------------------------------------------
+
+* * * * * root echo "Hello world" >> /var/log/cron.log
+* * * * * curl -X POST --data "" http://192.168.1.15:8000/api/create
+# Don't remove the empty line at the end of this file. It is required to run the cron job
